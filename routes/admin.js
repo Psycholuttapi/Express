@@ -1,9 +1,10 @@
+
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/* GET users listing. */
 router.get('/', function(req, res, next) {
-
+  // res.send('respond with a resource');
   let phone=[{
     name:"Samsung Galaxy F13",
     Category:'Mobile',
@@ -33,7 +34,18 @@ router.get('/', function(req, res, next) {
 
   }]
 
-  res.render('index', {phone});
+  
+  res.render('admin/viewProduct',{phone})
 });
+
+router.get('/addProduct',function (req,res) {
+  
+  res.render('admin/addProduct.hbs')
+})
+router.post('/addProduct',function (req,res) {
+  console.log(req.body)
+  console.log(req.files.File);
+})
+
 
 module.exports = router;
