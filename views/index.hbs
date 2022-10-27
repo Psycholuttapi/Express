@@ -2,12 +2,12 @@
     <div class="row ">
         {{#each phone}}
         <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
+            <div class="card p-4" style="width: 18rem; height:30rem">
 
-                <img src={{this.image}} class="card-img-top imageCard" alt="...">
+                <img src='/images/{{this._id}}.jpg' class="card-img-top imageCard" alt="..." style="height: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">{{this.name}}</h5>
-                    <p class="card-text">{{this.description}}</p>
+                    <h5 class="card-title">{{this.phone}}</h5>
+                    <p class="card-text">{{this.Description}}</p>
                     <a href="#" class="btn btn-primary">cart</a>
                 </div>
             </div>
