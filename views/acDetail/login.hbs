@@ -1,4 +1,9 @@
-<form action="" id="login" method="POST">
+<br>
+
+{{#if loginerr}}
+<h3>{{loginerr}}</h3>
+{{/if}}
+<form action="/login" id="login" method="POST">
                 <div class="form-group">
                     <label for="name">Name <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="name" id="email" placeholder="Enter your name">

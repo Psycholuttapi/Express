@@ -10,8 +10,11 @@ var hbs = require('express-handlebars')
 var app = express();
 const fileUpload = require('express-fileupload');
 var db=require("./config/connection")
-// view engine setup
+var session = require('express-session')
 
+
+
+// view engine setup
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -33,10 +36,11 @@ db.connect((err)=>{
   else
   console.log("Database is connected");
 })
+app.use(session({
+  secret: "key",
+  cookie: { maxAge: 60000}, 
+}));
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use('/stylesheets',express.static(__dirname+'public/stylesheets'))
-// app.use('/javascripts',express.static(__dirname+'public/javascripts'))
-
 app.use('/', usersRouter);
 app.use('/admin',adminRouter);
 
