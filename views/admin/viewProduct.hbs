@@ -21,8 +21,8 @@
           <td>{{this.Description}}</td>
           <td><img style="height: 50px;width: 50px;" src="/images/{{this._id}}.jpg" alt="" srcset=""></td>
           <td>
-            <a href="/admin/delete?id:{{this._id}}" onclick="return confirm('Are you sure?');"><i class="fa-solid fa-trash" ></i></a>
-            <a href="/admin/edit"><i class="fa-solid fa-pen-to-square"></i></a>
+            <a href="/admin/delete?id={{this._id}}" onclick="return confirm('Are you sure?');"><i class="fa-solid fa-trash" ></i></a>
+            <a href="/admin/edit?id={{this._id}}"><i class="fa-solid fa-pen-to-square"></i></a>
             
           </td>
         </tr>

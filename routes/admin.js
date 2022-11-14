@@ -24,29 +24,39 @@ router.post('/addProduct', function (req, res) {
   // console.log(req.files.File);
 
   productHelper.addProduct(req.body, (id) => {
-    // console.log(req.files.File)
-    if (req.files.File) {
-      var image = req.files.File;
-    }else
-    var image = ''
     
+    // console.log(req.files)
+    if (req.files.File) {
+     var image = req.files.File;
+    }
+      else 
+     var image = ''
+  
     image.mv('./public/images/' + id + '.jpg', (err, done) => {
-      if (!err) {
-        res.render("admin/addProduct")
-        console.log(done)
-        console.log("Mission completed")
-      } else {
-        console.log(err)
-      }
+      res.render("admin/addProduct")
+      
     })
-
-
   })
 })
-router.get('/delete',(req,res)=>{
+router.get('/delete', (req, res) => {
+  console.log("dsfgf", req.query);
   productHelper.deleteUser(req.query.id)
   res.redirect('/admin')
   // console.log(req.query);
+
+})
+
+router.get('/edit', (req, res) => {
+  console.log("the id is\n", req.query, req.query.id);
+  productHelper.productDetail(req.query.id).then((product) => {
+    res.render('admin/editProduct.hbs', { product });
+  })
+})
+router.post('/editProduct/:id', (res, req) => {
+  res.redirect('/admin')
+  console.log(req.body)
+  console.log("after a small gap\n\n\n")
+  console.log(req.query)
   
 })
 

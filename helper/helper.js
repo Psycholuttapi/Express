@@ -19,12 +19,21 @@ module.exports = {
     },
     deleteUser: (idd) => {
         return new Promise((resolve, reject) => {
-            console.log("Object Id is here \n",ObjectId(idd));
-            db.get().collection(collection.productCollection).deleteOne({idd}).then((response) => {
-                    console.log("Did this reach here",response);
-                    resolve(response)
-                })
+            db.get().collection(collection.productCollection).deleteOne({ idd }).then((response) => {
+                console.log("Did this reach here", response);
+                resolve(response)
+            })
         })
-
+    },
+    productDetail: (idd) => {
+        return new Promise((resolve, reject) => {
+            // var ids=idd.slice(2)
+            console.log("To check the id",idd) 
+        //     _idd:ObjectId(idd)
+            db.get().collection(collection.productCollection).findOne({_id:ObjectId(idd)}).then((response) => {
+                console.log("the id is\n",response);
+                resolve(response)
+            })
+        })
     }
 }

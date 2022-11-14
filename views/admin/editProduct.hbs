@@ -1,0 +1,31 @@
+<section>
+    {{!--  --}}
+    <form action="/admin/editProduct/{{product._id}}" enctype="multipart/form-data" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">phone</label>
+                <input class="form-control" id="inputPhone" placeholder="phone name" name="phone"
+                    value="{{product.phone}}">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="inputAddress">category</label>
+                <input type="text" class="form-control" id="inputcategory" placeholder="category" name="category"
+                    value="{{product.category}}">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Description</label>
+                <input class="form-control" id="inputDescription" placeholder="description" name="Description"
+                    value="{{product.Description}}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <img src="/images/{{product._id}}.jpg" alt="" srcset="" style="padding: 5px;height: 100px;width: 100px;">
+            <br>
+            <label for="exampleFormControlFile1">Example file input</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="File">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+</section>
